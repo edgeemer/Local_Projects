@@ -6,6 +6,7 @@ from itertools import permutations
 white_balls_number, black_balls_number, blue_balls_number = 9, 8, 7
 total_balls_number = white_balls_number + black_balls_number + blue_balls_number
 selection_length = 3
+number_of_items_in_selection = 2
 
 white_balls = ["WHITE" for _ in range(0, white_balls_number)]
 black_balls = ["BLACK" for _ in range(0, black_balls_number)]
@@ -26,7 +27,9 @@ for variant in permutations(all_balls, r=selection_length):
         elif ball == "BLUE":
             blue_counter += 1
 
-    if white_counter >= 2 or blue_counter >= 2 or blue_counter >= 2:
+    if (white_counter >= number_of_items_in_selection
+            or blue_counter >= number_of_items_in_selection
+            or blue_counter >= number_of_items_in_selection):
         variant_counter += 1
         final_selection[f"Variant {variant_counter}"] = variant
 
